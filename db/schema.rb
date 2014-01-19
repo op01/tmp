@@ -11,6 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20140119190036) do
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.string   "author"
+    t.datetime "published_at"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
