@@ -1,13 +1,29 @@
-<h1>Posts</h1>
+    	<div class="content_box">
+            <h1>Short Info of <span>Web Tech Blog</span></h1>
+            <p>Vivamus a massa. Donec iaculis felis id neque. Praesent varius egestas velit. Donec a massa ut pede pulvinar vulputate. Nulla et augue. Sed eu nunc quis pede tristique suscipit. Nam sit amet justo vel libero tincidunt dignissim. Cras magna velit, pellentesque mattis, faucibus vitae, feugiat vitae, sapien.  Fusce ac orci sit amet velit ultrices condimentum. Integer imperdiet odio ac eros. Ut id massa. Nullam nunc. Vivamus sagittis varius lorem.</p>
+		</div>
 
- 
-<% @posts.each do |post| %>
-  <div>
-    <div><%= post.title %></div>
-    <div><%= post.text %></div>
-    <div><%= post.author %></div>
-    <div><%= post.published_at %></div>
-  </div>
-<% end %>
 
+  	<% @posts.each_with_index do |post, post_num| %>    
+          <% if post_num+1 != @posts.length %>
+            <div class="post_box">
+          <% else %>
+            <div class="post_box pb_last">
+          <% end %>
+            <div class="header">
+                <h2><a href="#"><%= post.title %></a></h2>
+              <div class="tag"><strong>Author:</strong> <a href="#"><%= post.author %></a></div>
+                <span class="posted_date">
+                    <%= post.published_at.strftime("%d %b") %>
+                    <strong><%= post.published_at.year %></strong>
+                </span>
+            </div>
+            <img src="images/templatemo_image_01.jpg" alt="image" />
+            <div class="pb_right">
+                <p><%= post.text %></p>
+                <div class="comment"><a href="#">Comment</a></div>
+		  </div>
+            <div class="cleaner"></div>
+    </div>
+        <% end %>
 
