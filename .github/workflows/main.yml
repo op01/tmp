@@ -24,9 +24,10 @@ jobs:
       - uses: denolib/setup-deno@v2
         with:
           deno-version: v1.4.2
-      - run: |
+      - name: Run deno test
+        run: |
           deno --version
-          deno run https://deno.land/std/examples/welcome.ts
+          deno test
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
